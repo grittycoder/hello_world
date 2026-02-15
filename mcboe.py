@@ -110,3 +110,47 @@ final_result = mcboe.process(raw_input)
 print(f"Final Content: {final_result.content}")
 print(f"Metadata: {final_result.metadata}")
 print(f"Process History: {final_result.history}")
+
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+# 1. Initialize the Web App
+app = FastAPI(title="Master Coding Block Of Everything (MCBOE) API")
+
+# 2. Setup the Global Engine
+# In a real app, this would be initialized once
+engine = MasterCodingBlock()
+engine.add_enhancer(DataCleaner())
+engine.add_enhancer(FormatTransformer())
+
+# 3. Define the Input Format for the API
+class ProcessRequest(BaseModel):
+    text: str
+
+# 4. The "Web Door" Endpoint
+@app.post("/process")
+async def process_content(request: ProcessRequest):
+    """
+    Ingests raw text via HTTP, runs the MCBOE pipeline, 
+    and returns the unified payload.
+    """
+    try:
+        if not request.text:
+            raise HTTPException(status_code=400, detail="Text field cannot be empty.")
+            
+        # Trigger the Main Blade
+        result = engine.process(request.text)
+        
+        return {
+            "status": "success",
+            "data": result.content,
+            "metadata": result.metadata,
+            "pipeline_path": result.history
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# 5. Health Check
+@app.get("/")
+def read_root():
+    return {"message": "MCBOE is Online", "version": "1.0.0"}
