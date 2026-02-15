@@ -156,6 +156,36 @@ engine.add_enhancer(DataCleaner())
 engine.add_enhancer(FormatTransformer())
 engine.add_enhancer(DatabaseSaver()) # The memory is now active!        
 
+from typing import List
+
+# 1. Add this endpoint to your FastAPI app section
+@app.get("/history", response_model=List[dict])
+def get_all_history():
+    """
+    The 'Recall' function. 
+    Queries the SQLite memory to return every block ever processed.
+    """
+    db = SessionLocal()
+    try:
+        # Fetching all records from the 'records' table
+        records = db.query(ProcessedRecord).order_by(ProcessedRecord.processed_at.desc()).all()
+        
+        # Formatting for the response
+        return [
+            {
+                "id": r.id,
+                "content": r.final_content,
+                "metadata": r.metadata_json,
+                "timestamp": r.processed_at.isoformat()
+            }
+            for r in records
+        ]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Memory Retrieval Failed: {str(e)}")
+    finally:
+        db.close()
+
+
 # 5. Health Check
 @app.get("/")
 def read_root():
