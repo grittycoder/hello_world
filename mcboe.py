@@ -277,3 +277,28 @@ def search_history(query: str):
 
 
 
+import collections
+
+class AISummaryEnhancer(ContentEnhancer):
+    """
+    The 'Intelligence' plugin. 
+    Analyzes the text and adds a 'summary' key to the metadata.
+    """
+    def transform(self, payload: ContentPayload) -> ContentPayload:
+        content = payload.content
+        sentences = content.split('.')
+        
+        # Simple Logic: If text is short, the summary is the text.
+        # If long, we take the first two sentences as a 'Pseudo-AI' summary.
+        if len(sentences) > 2:
+            summary = ". ".join(sentences[:2]).strip() + "..."
+        else:
+            summary = content
+            
+        # We store the result in metadata so it doesn't overwrite the full text
+        payload.metadata["summary"] = summary
+        payload.metadata["analysis_version"] = "v1.0-heuristic"
+        
+        return payload
+
+
