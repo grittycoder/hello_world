@@ -198,3 +198,9 @@ class DatabaseSaver(ContentEnhancer):
         return payload
 
 
+# Update your engine initialization
+engine = MasterCodingBlock()
+engine.add_enhancer(DataCleaner())
+engine.add_enhancer(FormatTransformer())
+engine.add_enhancer(DatabaseSaver()) # The memory is now active!
+
