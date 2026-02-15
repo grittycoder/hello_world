@@ -149,6 +149,12 @@ async def process_content(request: ProcessRequest):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+        
+# Update your engine initialization
+engine = MasterCodingBlock()
+engine.add_enhancer(DataCleaner())
+engine.add_enhancer(FormatTransformer())
+engine.add_enhancer(DatabaseSaver()) # The memory is now active!        
 
 # 5. Health Check
 @app.get("/")
@@ -196,11 +202,3 @@ class DatabaseSaver(ContentEnhancer):
         finally:
             db.close()
         return payload
-
-
-# Update your engine initialization
-engine = MasterCodingBlock()
-engine.add_enhancer(DataCleaner())
-engine.add_enhancer(FormatTransformer())
-engine.add_enhancer(DatabaseSaver()) # The memory is now active!
-
