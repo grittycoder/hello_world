@@ -154,3 +154,47 @@ async def process_content(request: ProcessRequest):
 @app.get("/")
 def read_root():
     return {"message": "MCBOE is Online", "version": "1.0.0"}
+
+from sqlalchemy import create_engine, Column, Integer, String, JSON, DateTime
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+import datetime
+
+# 1. Database Setup
+DATABASE_URL = "sqlite:///./mcboe_memory.db"
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+# 2. The Database Model (The 'Memory' Table)
+class ProcessedRecord(Base):
+    __tablename__ = "records"
+    id = Column(Integer, primary_key=True, index=True)
+    final_content = Column(String)
+    metadata_json = Column(JSON)
+    processed_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+# Create the table
+Base.metadata.create_all(bind=engine)
+
+# 3. The Database Saver Enhancer
+class DatabaseSaver(ContentEnhancer):
+    """
+    The 'Memory' plugin. It saves the state of the payload 
+    to the SQLite database at the end of the pipeline.
+    """
+    def transform(self, payload: ContentPayload) -> ContentPayload:
+        db = SessionLocal()
+        try:
+            new_record = ProcessedRecord(
+                final_content=payload.content,
+                metadata_json=payload.metadata
+            )
+            db.add(new_record)
+            db.commit()
+            payload.metadata["db_record_id"] = new_record.id
+        finally:
+            db.close()
+        return payload
+
+
