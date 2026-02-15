@@ -311,3 +311,51 @@ engine.add_enhancer(DatabaseSaver())
 
 
 
+from sqlalchemy import func
+from datetime import datetime, timedelta
+
+@app.get("/dashboard")
+def get_dashboard_stats():
+    """
+    The 'Observation' function.
+    Aggregates data from the SQLite memory to provide a 
+    high-level overview of the MCBOE's activity.
+    """
+    db = SessionLocal()
+    try:
+        # 1. Total count of all records
+        total_records = db.query(ProcessedRecord).count()
+
+        # 2. Today's activity
+        today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+        records_today = db.query(ProcessedRecord).filter(
+            ProcessedRecord.processed_at >= today_start
+        ).count()
+
+        # 3. Calculate Average Word Count (Stored in metadata_json)
+        # Note: Since SQLite JSON handling varies, we do a simple Python aggregation here
+        all_metadata = db.query(ProcessedRecord.metadata_json).all()
+        total_words = sum(m[0].get("word_count", 0) for m in all_metadata if m[0])
+        avg_words = total_words / total_records if total_records > 0 else 0
+
+        # 4. Engine Status
+        active_enhancers = [e.__class__.__name__ for e in engine.pipeline]
+
+        return {
+            "system_status": "ONLINE",
+            "metrics": {
+                "total_processed_blocks": total_records,
+                "processed_today": records_today,
+                "average_word_depth": round(avg_words, 2)
+            },
+            "active_pipeline": active_enhancers,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Dashboard generation failed: {str(e)}")
+    finally:
+        db.close()
+
+
+
+
