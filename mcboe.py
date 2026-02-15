@@ -232,3 +232,48 @@ class DatabaseSaver(ContentEnhancer):
         finally:
             db.close()
         return payload
+        
+        
+from sqlalchemy import or_
+
+# Add this endpoint to your mcboe.py file
+
+@app.get("/search")
+def search_history(query: str):
+    """
+    The 'Search' function.
+    Scans the SQLite memory for records containing the query string
+    within the content or metadata.
+    """
+    if not query or len(query) < 2:
+        raise HTTPException(status_code=400, detail="Search query must be at least 2 characters.")
+
+    db = SessionLocal()
+    try:
+        # We use a case-insensitive search (ILIKE/contains) 
+        # scanning the 'final_content' column
+        search_results = db.query(ProcessedRecord).filter(
+            ProcessedRecord.final_content.contains(query)
+        ).order_by(ProcessedRecord.processed_at.desc()).all()
+
+        if not search_results:
+            return {"message": f"No records found matching: '{query}'", "results": []}
+
+        return [
+            {
+                "id": r.id,
+                "content": r.final_content,
+                "metadata": r.metadata_json,
+                "timestamp": r.processed_at.isoformat()
+            }
+            for r in search_results
+        ]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")
+    finally:
+        db.close()
+
+
+
+
+
