@@ -302,3 +302,12 @@ class AISummaryEnhancer(ContentEnhancer):
         return payload
 
 
+# New and Improved Pipeline
+engine = MasterCodingBlock()
+engine.add_envancer(DataCleaner())
+engine.add_enhancer(AISummaryEnhancer())  # <-- AI analysis happens before formatting
+engine.add_enhancer(FormatTransformer())
+engine.add_enhancer(DatabaseSaver())
+
+
+
