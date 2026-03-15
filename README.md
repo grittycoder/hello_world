@@ -1,13 +1,13 @@
 # Project_Bleach
 
 
-hello_world/
-├── backend/                    # Python Flask API
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── auth/              # User authentication
-│   │   ├── services/          # Service listings
-│   │   ├── bookings/          # Booking calendar
+# hello_world/
+    ├── backend/                    # Python Flask API
+    │   ├── app/
+    │   │   ├── __init__.py
+    │   │   ├── auth/              # User authentication
+    │   │   ├── services/          # Service listings
+    │   │   ├── bookings/          # Booking calendar
 │   │   ├── payments/          # Payment processing
 │   │   └── models.py
 │   ├── requirements.txt
