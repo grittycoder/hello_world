@@ -12,12 +12,27 @@ import {
 } from 'react-native';
 
 // Temporary seed data for UI development
-const MOCK_SERVICES = [
-  { id: '1', title: 'Standard Consultation', price: '$50', duration: '30 min' },
-  { id: '2', title: 'Premium Support', price: '$120', duration: '60 min' },
-  { id: '3', title: 'Technical Audit', price: '$200', duration: '90 min' },
-  { id: '4', title: 'Custom Implementation', price: '$500', duration: 'Variable' },
-];
+import React from 'react';
+import { FlatList } from 'react-native';
+// Import the seed data
+import seedData from '../data/seedData.json'; 
+
+const ServicesScreen = () => {
+  // Use the services array from the JSON file
+  const services = seedData.services;
+
+  return (
+    <FlatList
+      data={services}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        // Your existing card component here
+        <ServiceCard title={item.title} price={item.price} />
+      )}
+    />
+  );
+};
+
 
 const ServicesScreen = ({ navigation }) => {
 
