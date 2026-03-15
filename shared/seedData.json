@@ -1,0 +1,84 @@
+{
+  "services": [
+    {
+      "id": "s1",
+      "title": "Initial Consultation",
+      "description": "A comprehensive 30-minute session to discuss your project requirements and goals.",
+      "price": "$50.00",
+      "duration": "30 min",
+      "category": "Consulting",
+      "image_url": "https://example.com/images/consult.jpg"
+    },
+    {
+      "id": "s2",
+      "title": "UI/UX Design Audit",
+      "description": "A detailed review of your current application interface with actionable improvement steps.",
+      "price": "$150.00",
+      "duration": "60 min",
+      "category": "Design",
+      "image_url": "https://example.com/images/design.jpg"
+    },
+    {
+      "id": "s3",
+      "title": "Full Stack Development",
+      "description": "Hourly development services for React, React Native, and Node.js environments.",
+      "price": "$100.00",
+      "duration": "60 min",
+      "category": "Development",
+      "image_url": "https://example.com/images/dev.jpg"
+    }
+  ],
+  "mockUser": {
+    "id": "u101",
+    "name": "Alex Tester",
+    "email": "alex@example.com",
+    "isPremium": true,
+    "savedCards": [
+      { "id": "c1", "brand": "Visa", "last4": "4242" },
+      { "id": "c2", "brand": "MasterCard", "last4": "8888" }
+    ]
+  },
+  "existingBookings": [
+    {
+      "id": "b1",
+      "serviceId": "s1",
+      "date": "2026-04-15",
+      "time": "10:00 AM",
+      "status": "confirmed"
+      
+{
+  "services": [
+    {
+      "id": "clean-std",
+      "title": "Standard Sparkle",
+      "basePrice": 80,
+      "description": "Perfect for regular upkeep. Includes dusting, vacuuming, and mopping.",
+      "estimatedHours": 2,
+      "modifiers": {
+        "pricePerBedroom": 25,
+        "pricePerBathroom": 15
+      },
+      "addons": [
+        { "id": "a1", "name": "Inside Fridge", "price": 30 },
+        { "id": "a2", "name": "Interior Windows", "price": 45 },
+        { "id": "a3", "name": "Pet Hair Deep Clean", "price": 20 }
+      ]
+    },
+    {
+      "id": "clean-deep",
+      "title": "The Deep Dive",
+      "basePrice": 150,
+      "description": "Heavy-duty cleaning for homes that haven't been professionally cleaned in 3+ months.",
+      "estimatedHours": 4,
+      "modifiers": {
+        "pricePerBedroom": 40,
+        "pricePerBathroom": 25
+      },
+      "addons": []
+    }
+  ]
+}
+
+    }
+  ]
+}
