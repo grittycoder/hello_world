@@ -45,6 +45,40 @@
       "date": "2026-04-15",
       "time": "10:00 AM",
       "status": "confirmed"
+      
+{
+  "services": [
+    {
+      "id": "clean-std",
+      "title": "Standard Sparkle",
+      "basePrice": 80,
+      "description": "Perfect for regular upkeep. Includes dusting, vacuuming, and mopping.",
+      "estimatedHours": 2,
+      "modifiers": {
+        "pricePerBedroom": 25,
+        "pricePerBathroom": 15
+      },
+      "addons": [
+        { "id": "a1", "name": "Inside Fridge", "price": 30 },
+        { "id": "a2", "name": "Interior Windows", "price": 45 },
+        { "id": "a3", "name": "Pet Hair Deep Clean", "price": 20 }
+      ]
+    },
+    {
+      "id": "clean-deep",
+      "title": "The Deep Dive",
+      "basePrice": 150,
+      "description": "Heavy-duty cleaning for homes that haven't been professionally cleaned in 3+ months.",
+      "estimatedHours": 4,
+      "modifiers": {
+        "pricePerBedroom": 40,
+        "pricePerBathroom": 25
+      },
+      "addons": []
+    }
+  ]
+}
+
     }
   ]
 }
