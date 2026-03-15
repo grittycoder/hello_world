@@ -24,3 +24,9 @@
     ├── .gitignore
     ├── README.md
     └── requirements.txt
+
+
+
+# web-app/src/components/Navbar.jsx
+# web-app/src/pages/Dashboard.jsx (Shows upcoming cleanings)
+# web-app/src/pages/BookService.jsx (The web version of your mobile flow)
