@@ -1,3 +1,6 @@
+# Booking_Screen
+
+
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 
@@ -57,5 +60,15 @@ const styles = StyleSheet.create({
   confirmButton: { backgroundColor: '#007AFF', padding: 18, borderRadius: 8, alignItems: 'center' },
   confirmButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
 });
+
+
+const calculateTotal = (service, rooms, baths, selectedAddons) => {
+  const base = service.basePrice;
+  const roomCost = rooms * service.modifiers.pricePerBedroom;
+  const bathCost = baths * service.modifiers.pricePerBathroom;
+  const addonCost = selectedAddons.reduce((sum, addon) => sum + addon.price, 0);
+  
+  return base + roomCost + bathCost + addonCost;
+};
 
 export default BookingScreen;
