@@ -1,6 +1,7 @@
 # Project Bleach No Detergent
 
-# hello_world
+# Cleaning Service Booking Application
+
     ├── backend/                    # Python Flask API
     │   ├── app/
     │   │   ├── __init__.py
