@@ -1,6 +1,6 @@
-# Project_Bleach
+# Project Bleach No Detergent
 
-# hello_world/
+# hello_world
     ├── backend/                    # Python Flask API
     │   ├── app/
     │   │   ├── __init__.py
