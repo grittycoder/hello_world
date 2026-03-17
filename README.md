@@ -26,10 +26,6 @@
     └── requirements.txt
 
 
-
-A masterfully written README.md is the "Golden Snitch" of your repository—it’s the final piece that makes the entire project shine for other developers (or your future self). It turns a collection of files into a professional, navigable application.
-Here is a comprehensive README.md that captures the duality and "Singularity" of your SparkleSquad project.
-
 ✨ SparkleSquad: Professional Cleaning Platform
 SparkleSquad is a dual-interface application designed to bridge the gap between clients and professional cleaners. Built with a "Singularity" shared-logic architecture, it ensures a seamless, secure, and transparent experience from booking to completion.
 🏗 Project Architecture
