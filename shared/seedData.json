@@ -1,4 +1,23 @@
 {
+  "taskTemplates": {
+    "clean-std": [
+      "Dust all reachable surfaces",
+      "Vacuum and mop all floors",
+      "Empty trash bins",
+      "Sanitize kitchen counters",
+      "Clean bathroom mirrors and sinks"
+    ],
+    "clean-deep": [
+      "All Standard tasks",
+      "Scrub grout in showers",
+      "Dust baseboards and ceiling fans",
+      "Clean inside microwave and oven"
+    ]
+  }
+}
+
+
+{
   "services": [
     {
       "id": "s1",
