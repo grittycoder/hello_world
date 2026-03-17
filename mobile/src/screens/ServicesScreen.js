@@ -1,6 +1,29 @@
 # Service Me, Service You
 
 import React from 'react';
+import { FlatList } from 'react-native';
+// Import the seed data
+import seedData from '../data/seedData.json'; 
+
+const ServicesScreen = () => {
+  // Use the services array from the JSON file
+  const services = seedData.services;
+
+  return (
+    <FlatList
+      data={services}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        // Your existing card component here
+        <ServiceCard title={item.title} price={item.price} />
+      )}
+    />
+  );
+};
+
+
+
+import React from 'react';
 import { 
   View, 
   Text, 
