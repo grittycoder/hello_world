@@ -1,3 +1,37 @@
+import { useStripe } from '@stripe/stripe-react-native';
+
+const PaymentScreen = () => {
+  const { initPaymentSheet, presentPaymentSheet } = useStripe();
+
+  const initializePayment = async () => {
+    // 1. Get PaymentIntent and EphemeralKey from your backend
+    const { paymentIntent, customer } = await fetchPaymentParams();
+
+    // 2. Initialize the native UI
+    const { error } = await initPaymentSheet({
+      customerId: customer,
+      paymentIntentClientSecret: paymentIntent,
+      merchantDisplayName: 'SparkleSquad Inc.',
+    });
+
+    if (!error) {
+      // 3. Open the slide-up menu
+      const { error: paymentError } = await presentPaymentSheet();
+      if (!paymentError) alert("Payment authorized!");
+    }
+  };
+
+  return (
+    <TouchableOpacity style={styles.payBtn} onPress={initializePayment}>
+      <Text>Finish Booking</Text>
+    </TouchableOpacity>
+  );
+};
+
+
+
+
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 
