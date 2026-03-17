@@ -1,5 +1,12 @@
 # ACTUALLY ITS A LOGIN
 
+const handleLogin = () => {
+  // After validation logic:
+  navigation.navigate('Services');
+};
+
+
+
 import React, { useState } from 'react';
 import { 
   View, 
