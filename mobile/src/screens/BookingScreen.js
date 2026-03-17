@@ -1,4 +1,14 @@
 # Booking_Screen
+const renderServiceItem = ({ item }) => (
+  <TouchableOpacity 
+    onPress={() => navigation.navigate('Booking', { service: item })}
+  >
+    {/* card content */}
+  </TouchableOpacity>
+);
+
+
+
 
 
 import React, { useState } from 'react';
