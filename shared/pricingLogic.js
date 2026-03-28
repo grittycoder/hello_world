@@ -1,4 +1,5 @@
 // shared/pricingLogic.js
+
 export const calculateTotal = (service, rooms, baths, addons = []) => {
   if (!service) return 0;
   
