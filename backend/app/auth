@@ -13,3 +13,20 @@ func SetupRoutes(app *fiber.App) {
     auth.Post("/register", register)
     auth.Post("/logout", logout)
 }
+
+func login(c *fiber.Ctx) error {
+    // Handle user login logic here
+    return c.SendString("Login endpoint")
+}
+
+func register(c *fiber.Ctx) error {
+    // Handle user registration logic here
+    return c.SendString("Register endpoint")
+}
+
+func logout(c *fiber.Ctx) error {
+    // Handle user logout logic here
+    return c.SendString("Logout endpoint")
+}
+
+// Additional authentication-related functions can be added here, such as token generation, password hashing, etc.

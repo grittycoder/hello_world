@@ -1,4 +1,5 @@
-// services module\
+// services module: contains all the business logic of the application, such as handling user authentication, managing posts and comments, sending notifications, etc.
+
 pub mod auth_service;
 pub mod user_service;
 pub mod post_service;
