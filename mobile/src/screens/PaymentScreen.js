@@ -1,4 +1,4 @@
-// PaymentScreen.js
+// Payment integration using Stripe's React Native SDK
 
 import { useStripe } from '@stripe/stripe-react-native';
 

@@ -1,1 +1,6 @@
-#
+// templates will be served from this directory
+
+// for example, if you have a file called "index.html" in this directory, it will be accessible at "/templates/index.html"
+// you can also create subdirectories within this directory to organize your templates
+// for example, if you have a file called "base.html" in a subdirectory called "layouts", it will be accessible at "/templates/layouts/base.html"
+

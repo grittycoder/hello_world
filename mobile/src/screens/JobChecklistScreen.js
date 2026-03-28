@@ -39,3 +39,49 @@ const JobChecklistScreen = ({ route }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  taskItem: { 
+    padding: 15, 
+    borderBottomWidth: 1, 
+    borderColor: '#eee'
+
+  },
+  taskCompleted: {
+    backgroundColor: '#e0ffe0',
+  },
+  textTodo: {
+    fontSize: 18,
+    color: '#333', 
+  },
+  textDone: {
+    fontSize: 18,
+    color: '#999',
+    textDecorationLine: 'line-through',
+  },
+  finishButton: {
+    marginTop: 30,
+    backgroundColor: '#4CAF50',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+
+  },
+  finishText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
+
+export default JobChecklistScreen;

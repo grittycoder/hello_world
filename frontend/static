@@ -1,1 +1,6 @@
-#
+// static files will be served from this directory
+
+// for example, if you have a file called "logo.png" in this directory, it will be accessible at "/static/logo.png"
+// you can also create subdirectories within this directory to organize your static files
+// for example, if you have a file called "style.css" in a subdirectory called "css", it will be accessible at "/static/css/style.css"
+

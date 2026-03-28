@@ -1,10 +1,11 @@
-// Booking_Screen
+// Booking Screen
 
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 
 const BookingScreen = ({ route, navigation }) => {
   // Assume the service was passed via navigation
+  
   const service = route?.params?.service || { title: 'Standard Consultation', price: '$50' };
   
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -12,6 +13,7 @@ const BookingScreen = ({ route, navigation }) => {
 
   const handleConfirmBooking = () => {
     // Navigate to Payment Processing next
+
     navigation.navigate('Payment', { 
       service, 
       date: selectedDate.toDateString(), 
@@ -60,7 +62,6 @@ const styles = StyleSheet.create({
   confirmButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
 });
 
-
 const calculateTotal = (service, rooms, baths, selectedAddons) => {
   const base = service.basePrice;
   const roomCost = rooms * service.modifiers.pricePerBedroom;
@@ -70,8 +71,6 @@ const calculateTotal = (service, rooms, baths, selectedAddons) => {
   return base + roomCost + bathCost + addonCost;
 };
 
-export default BookingScreen;
-
 const renderServiceItem = ({ item }) => (
   <TouchableOpacity 
     onPress={() => navigation.navigate('Booking', { service: item })}
@@ -79,3 +78,5 @@ const renderServiceItem = ({ item }) => (
     {/* card content */}
   </TouchableOpacity>
 );
+
+export default BookingScreen;

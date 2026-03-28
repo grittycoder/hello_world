@@ -1,11 +1,4 @@
-// ACTUALLY ITS A LOGIN
-
-const handleLogin = () => {
-  // After validation logic:
-  navigation.navigate('Services');
-};
-
-
+// ACTUALLY ITS A LOGIN SCREEN, NOT A SIGNUP SCREEN. PLEASE RENAME THE FILE TO LoginScreen.js
 
 import React, { useState } from 'react';
 import { 
@@ -30,6 +23,7 @@ const LoginScreen = () => {
     }
     
     // TODO: Connect to backend authentication service
+
     console.log("Attempting to log in with:", email);
   };
 
@@ -118,6 +112,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-});
+});const handleLogin = () => {
+  // After validation logic:
+
+  navigation.navigate('Services');
+};
 
 export default LoginScreen;
