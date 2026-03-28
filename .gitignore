@@ -1,1 +1,29 @@
-#
+// git ignore file for a typical Node.js project
+# Node modules
+node_modules/
+# Logslogs
+*.log
+# Environment variables.env
+# Build outputdist/
+# IDE files
+.vscode/
+.idea/
+# OS files.DS_Store
+Thumbs.db 
+# Optional npm cache directory.npm
+# Optional eslint cache.eslintcache
+# Optional REPL history.repl_history
+# Optional coverage directory.coverage
+# Optional lock filespackage-lock.json
+
+# Optional yarn lock fileyarn.lock
+# Optional dotenv environment variables file.env
+# Optional next.js build output.next/
+# Optional next.js cache.next/cache/
+# Optional next.js build output.next/dist/
+# Optional next.js serverless functions.next/serverless/
+# Optional next.js static files.next/static/
+
+/* Add any additional files or directories you want to ignore below this line */
+
+// End of .gitignore file
