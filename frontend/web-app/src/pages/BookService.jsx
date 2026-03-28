@@ -1,3 +1,5 @@
+// This component allows users to book a cleaning service by selecting a service type, specifying the number of rooms and bathrooms, and choosing any additional add-ons. The total price is calculated based on the selected options and displayed in a summary card.
+
 import React, { useState, useMemo } from 'react';
 import seedData from '../../../shared/seedData.json';
 import { calculateTotal } from '../../../shared/pricingLogic';
