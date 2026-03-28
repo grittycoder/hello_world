@@ -1,3 +1,5 @@
+// components/CheckoutForm.jsx
+
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({ totalAmount }) => {
@@ -41,3 +43,5 @@ const CheckoutForm = ({ totalAmount }) => {
     </form>
   );
 };
+
+export default CheckoutForm;
