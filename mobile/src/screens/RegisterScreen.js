@@ -1,4 +1,5 @@
 // Simplified logic for the mobile toggle
+
 const [role, setRole] = useState('client');
 
 return (

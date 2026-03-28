@@ -1,4 +1,4 @@
-# ACTUALLY ITS A LOGIN
+// ACTUALLY ITS A LOGIN
 
 const handleLogin = () => {
   // After validation logic:

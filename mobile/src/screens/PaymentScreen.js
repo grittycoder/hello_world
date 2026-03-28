@@ -1,3 +1,5 @@
+// PaymentScreen.js
+
 import { useStripe } from '@stripe/stripe-react-native';
 
 const PaymentScreen = () => {
@@ -27,10 +29,6 @@ const PaymentScreen = () => {
     </TouchableOpacity>
   );
 };
-
-
-
-
 
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';

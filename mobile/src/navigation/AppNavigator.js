@@ -1,3 +1,20 @@
+// AppNavigator.js
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+// Import screens
+import LoginScreen from '../screens/LoginScreen';
+import ServicesScreen from '../screens/ServicesScreen';
+import BookingScreen from '../screens/BookingScreen';
+import PaymentScreen from '../screens/PaymentScreen';
+import CleanerSchedule from '../screens/CleanerSchedule';
+import JobChecklistScreen from '../screens/JobChecklistScreen';
+
+
+
 const AppNavigator = ({ user }) => {
   return (
     <NavigationContainer>

@@ -1,15 +1,4 @@
-# Booking_Screen
-const renderServiceItem = ({ item }) => (
-  <TouchableOpacity 
-    onPress={() => navigation.navigate('Booking', { service: item })}
-  >
-    {/* card content */}
-  </TouchableOpacity>
-);
-
-
-
-
+// Booking_Screen
 
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
@@ -82,3 +71,11 @@ const calculateTotal = (service, rooms, baths, selectedAddons) => {
 };
 
 export default BookingScreen;
+
+const renderServiceItem = ({ item }) => (
+  <TouchableOpacity 
+    onPress={() => navigation.navigate('Booking', { service: item })}
+  >
+    {/* card content */}
+  </TouchableOpacity>
+);

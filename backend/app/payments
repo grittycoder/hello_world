@@ -1,1 +1,27 @@
-#
+// Paymenyts module
+package payments
+
+import (
+    "github.com/hibiken/asynq"
+    "github.com/rs/zerolog/log"
+)
+
+// Task types
+const (
+    TaskTypeProcessPayment = "process_payment"
+
+// EnqueueProcessPaymentTask enqueues a task to process a payment
+func EnqueueProcessPaymentTask(client *asynq.Client, paymentID string) error {
+    payload := map[string]interface{}{
+        "payment_id": paymentID,
+    }                   
+    task := asynq.NewTask(TaskTypeProcessPayment, payload)
+    _, err := client.Enqueue(task)
+    if err != nil {
+        log.Error().Err(err).Msg("Failed to enqueue process payment task")
+        return err
+    }
+
+    log.Info().Str("payment_id", paymentID).Msg("Enqueued process payment task")
+    return nil
+}

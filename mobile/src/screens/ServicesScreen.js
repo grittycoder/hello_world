@@ -1,4 +1,4 @@
-# Service Me, Service You
+// Service Me, Service You
 
 import React from 'react';
 import { FlatList } from 'react-native';
@@ -21,8 +21,6 @@ const ServicesScreen = () => {
   );
 };
 
-
-
 import React from 'react';
 import { 
   View, 
@@ -35,6 +33,7 @@ import {
 } from 'react-native';
 
 // Temporary seed data for UI development
+
 import React from 'react';
 import { FlatList } from 'react-native';
 // Import the seed data

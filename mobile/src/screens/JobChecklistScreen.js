@@ -1,3 +1,5 @@
+// ... Styles for a clean, task-oriented list
+
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import jobSchema from '../../../shared/jobSchema.json';
@@ -37,5 +39,3 @@ const JobChecklistScreen = ({ route }) => {
     </View>
   );
 };
-
-// ... Styles for a clean, task-oriented list

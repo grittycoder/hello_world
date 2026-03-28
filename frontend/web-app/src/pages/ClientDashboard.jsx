@@ -1,7 +1,9 @@
 import React from 'react';
 
 const ClientDashboard = ({ activeJob }) => {
+
   // Logic to calculate percentage based on completed tasks
+
   const completedCount = activeJob.tasks.filter(t => t.completed).length;
   const progressPercent = (completedCount / activeJob.tasks.length) * 100;
 
@@ -31,7 +33,7 @@ const ClientDashboard = ({ activeJob }) => {
       </div>
       
       <p className="mt-6 text-sm text-center text-gray-500 italic">
-        "Your cleaner is currently sanitizing the kitchen counters..."
+        "Your cleaner is currently ... the ..."
       </p>
     </div>
   );

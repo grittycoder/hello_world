@@ -1,1 +1,34 @@
-#
+// Booking model
+export interface Booking {
+  id: number;
+  userId: number;
+  serviceId: number;
+  date: Date;
+  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
+}
+
+// Create booking request
+export interface CreateBookingRequest {
+  userId: number;
+  serviceId: number;
+  date: Date;
+}
+
+// Update booking request
+export interface UpdateBookingRequest {
+  id: number;
+  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
+}
+
+// Booking service interface
+export interface BookingService {
+  createBooking(request: CreateBookingRequest): Promise<Booking>;
+
+    updateBooking(request: UpdateBookingRequest): Promise<Booking>;
+
+    getBookingById(id: number): Promise<Booking>;
+
+    getBookingsByUserId(userId: number): Promise<Booking[]>;
+
+    deleteBooking(id: number): Promise<void>;
+}
