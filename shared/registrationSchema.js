@@ -1,4 +1,5 @@
 // shared/validation.js
+
 export const validateRegistration = (data) => {
   const errors = {};
   if (!data.email.includes('@')) errors.email = "Invalid email address";
