@@ -1,4 +1,6 @@
-// Paymenyts module
+// Paymenyts module handles payment processing tasks using Asynq for background job processing. It defines task types and provides a function to enqueue tasks for processing payments asynchronously.
+
+
 package payments
 
 import (

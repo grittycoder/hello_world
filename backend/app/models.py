@@ -1,4 +1,4 @@
-// Models for the application.
+// Models for the application, defining the structure of the database tables and the relationships between them.
 
 from django.db import models
 
