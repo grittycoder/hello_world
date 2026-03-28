@@ -1,14 +1,15 @@
-// Auth routes
+// Auth routes for user authentication and authorization
+
+
 package auth
 
 import (
     "github.com/gofiber/fiber/v2"
-)
+) 
 
 func SetupRoutes(app *fiber.App) {
     auth := app.Group("/auth")
-    auth.Post("/register", Register)
-
-    auth.Post("/login", Login)
-    auth.Post("/logout", Logout)
+    auth.Post("/login", login)
+    auth.Post("/register", register)
+    auth.Post("/logout", logout)
 }
