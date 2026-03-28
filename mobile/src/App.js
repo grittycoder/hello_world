@@ -1,3 +1,5 @@
+// App entry point for the React Native application. Sets up navigation between screens.
+
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';

@@ -17,3 +17,19 @@ const token = jwt.sign(
   process.env.JWT_SECRET, 
   { expiresIn: '7d' }
 );
+
+// Example Client Logic
+
+import jwtDecode from 'jwt-decode';
+
+const token = localStorage.getItem('token');
+if (token) {
+  const decoded = jwtDecode(token);
+  const user = {
+    id: decoded.id,
+    role: decoded.role,
+    token
+  };
+  // Set user in state or context
+  setUser(user);
+}

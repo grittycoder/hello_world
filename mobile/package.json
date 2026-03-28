@@ -1,4 +1,4 @@
-// Package configuration for the mobile application
+// Package configuration for the mobile application built with React Native. It includes dependencies for navigation, gesture handling, and testing, as well as scripts for starting the development server and running the app on Android and iOS devices.
 {
   "name": "mobile",
   "version": "1.0.0",
@@ -33,3 +33,4 @@
     "preset": "react-native"
   }
 }
+

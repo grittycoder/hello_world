@@ -10,3 +10,19 @@ export const calculateTotal = (service, rooms, baths, addons = []) => {
   
   return base + roomCost + bathCost + addonCost;
 };
+
+export const calculateDiscount = (total, discount) => {
+  if (!discount) return 0;
+  if (discount.type === 'percentage') {
+    return total * (discount.value / 100);
+  } else if (discount.type === 'fixed') {
+    return discount.value;
+  }
+  return 0;
+};
+
+export const calculateFinalPrice = (service, rooms, baths, addons = [], discount) => {
+  const total = calculateTotal(service, rooms, baths, addons);
+  const discountAmount = calculateDiscount(total, discount);
+  return Math.max(total - discountAmount, 0); // Ensure final price is not negative
+}; 
